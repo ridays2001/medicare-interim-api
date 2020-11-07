@@ -1,0 +1,10 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"editor.autoIndent": "advanced",
+	"files.insertFinalNewline": true,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	"files.trimTrailingWhitespace": true
+}
