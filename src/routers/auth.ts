@@ -20,7 +20,7 @@ const getUsers = async () => {
 			Authorization: process.env.TOKEN as string
 		}
 	}).then((res) => res.json()) as Promise<Array<User>>;
-}
+};
 
 router.post('/register', async (req, res) => {
 	const { dob, email, name, password, username } = req.body as RegisterFormValues;
@@ -218,7 +218,7 @@ router.post('/verify', async (req, res) => {
 });
 
 router.post('/validate-login', async (req, res) => {
-	const { token, username } = req.body as { username: string, token: string };
+	const { token, username } = req.body as { username: string; token: string };
 	if (!token?.length || !username?.length) {
 		return res.status(500).end('Error: Incomplete Details!');
 	}
@@ -231,13 +231,14 @@ router.post('/validate-login', async (req, res) => {
 
 	if (token === encrypt(username)) {
 		return res.status(200).json({
-		id: matchedUser.id,
-		name: matchedUser.name,
-		username: matchedUser.username,
-		email: matchedUser.email,
-		dob: matchedUser.dob
-	});
+			id: matchedUser.id,
+			name: matchedUser.name,
+			username: matchedUser.username,
+			email: matchedUser.email,
+			dob: matchedUser.dob
+		});
 	}
+
 	return res.status(502).end('Error: Invalid credentials!');
 });
 
